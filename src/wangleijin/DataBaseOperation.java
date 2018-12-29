@@ -6,10 +6,12 @@ import java.sql.*;
 
 public class DataBaseOperation {
 
+    //这里指定数据库的连接信息
     private static String jdbcDriver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
     private static String url = "jdbc:sqlserver://120.78.209.49;database=MyDB";
     private static String username = "SA";
     private static String password = "Wang13587";
+    //我的服务器上数据库的连接信息
 
     //数据库查询
     public static JTable query(String sql){

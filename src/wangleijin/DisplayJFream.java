@@ -36,3 +36,39 @@ public class DisplayJFream extends JFrame {
         new DisplayJFream();
     }
 }
+
+
+
+//下面是数据库的创建语句
+
+/*
+
+    CREATE DATABASE MyDB
+        ON PRIMARY
+        (
+        NAME = 'mydb_data',
+        FILENAME = '/root/Sql/mydb_data.mdf',
+        SIZE = 5MB,
+        MAXSIZE = 50MB,
+        FILEGROWTH = 5%
+        )
+        LOG ON
+        (
+        NAME = 'mydb_log',
+        FILENAME = '/root/Sql/mydb_log.ldf',
+        SIZE = 5MB,
+        MAXSIZE = 50MB ,
+        FILEGROWTH = 5%
+        )
+
+        USE MyDB
+        CREATE TABLE goods
+        (
+        goodsID NVARCHAR(8) PRIMARY KEY ,
+        type NVARCHAR(4),
+        name NVARCHAR(10),
+        price FLOAT,
+        number INT
+        )
+
+*/

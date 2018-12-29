@@ -77,6 +77,8 @@ public class LeftJpanel extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
+        //这里注释掉的是用固定数组替代的方法
+
         /*if(actionEvent.getSource().equals(typeComboBox)){
             nameComboBoxModel.removeAllElements();
             int index = typeComboBox.getSelectedIndex();
@@ -85,6 +87,7 @@ public class LeftJpanel extends JPanel implements ActionListener {
             }
         }*/
 
+        //这里是利用SpiltType类使用的方法
         if(actionEvent.getSource().equals(typeComboBox)){
             String type = (String) typeComboBoxModel.getSelectedItem();
             SpiltType spiltType = new SpiltType(type);
@@ -93,6 +96,8 @@ public class LeftJpanel extends JPanel implements ActionListener {
                 nameComboBoxModel.addElement(spiltType.str[i]);
             }
         }
+
+
         else if(actionEvent.getSource().equals(queryButton)){
             String sql = "SELECT goodsID AS 商品编号,type AS 类型,name AS 名称,price AS 价格,number AS 数量\n" +
                     "FROM goods\n" +
@@ -101,8 +106,11 @@ public class LeftJpanel extends JPanel implements ActionListener {
             northJpanel.remove(0);
             northJpanel.add(northJpanel.scrollPane = new JScrollPane(northJpanel.table = DataBaseOperation.query(sql)));
             /*northJpanel.add(northJpanel.scrollPane.add(DataBaseOperation.query(sql)));*/
+            //修改后重绘
             northJpanel.revalidate();
         }
+
+
         else if(actionEvent.getSource().equals(modifyButton)){
             String goodID = goodIDTextField.getText();
             String price = priceTextField.getText();
