@@ -97,7 +97,7 @@ public class LeftJpanel extends JPanel implements ActionListener {
             }
         }
 
-
+        //查询按钮
         else if(actionEvent.getSource().equals(queryButton)){
             String sql = "SELECT goodsID AS 商品编号,type AS 类型,name AS 名称,price AS 价格,number AS 数量\n" +
                     "FROM goods\n" +
@@ -105,12 +105,14 @@ public class LeftJpanel extends JPanel implements ActionListener {
            /* northJpanel.remove(northJpanel.table);*/
             northJpanel.remove(0);
             northJpanel.add(northJpanel.scrollPane = new JScrollPane(northJpanel.table = DataBaseOperation.query(sql)));
+            northJpanel.table.setEnabled(false);
             /*northJpanel.add(northJpanel.scrollPane.add(DataBaseOperation.query(sql)));*/
             //修改后重绘
             northJpanel.revalidate();
         }
 
 
+        //修改按钮
         else if(actionEvent.getSource().equals(modifyButton)){
             String goodID = goodIDTextField.getText();
             String price = priceTextField.getText();

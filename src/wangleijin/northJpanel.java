@@ -12,5 +12,6 @@ public class northJpanel extends JPanel {
         super();
         this.table = DataBaseOperation.query(sql);
         this.add(scrollPane = new JScrollPane(this.table));
+        table.setEnabled(false);
     }
 }

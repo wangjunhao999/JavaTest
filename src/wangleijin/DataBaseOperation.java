@@ -39,6 +39,7 @@ public class DataBaseOperation {
             rset.close();
             stmt.close();
             con.close();
+            //最后关闭连接
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
